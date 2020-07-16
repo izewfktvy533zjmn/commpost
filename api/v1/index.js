@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require('express');
 var mongoose = require('mongoose');
 var morgan = require('morgan');
@@ -11,7 +12,7 @@ const connectionOption = {
 };
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/ExpressAPI', connectionOption);
+mongoose.connect(process.env.ENDPOINT_URL, connectionOption);
 mongoose.connection.on('error', function(err) {
     console.error("MongoDB connection error: " + err);
     process.exit(1);
@@ -22,7 +23,7 @@ app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || process.env.COMMPOST_PORT;
 var router = require('./routes');
 
 app.use('/api/v1', router);

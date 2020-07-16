@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/izewfktvy533zjmn/commpost#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.23.3",
     "moment": "^2.27.0",
