@@ -19,10 +19,16 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "forever": "^3.0.0",
+    "forever-monitor": "^3.0.1",
     "helmet": "^3.23.3",
     "moment": "^2.27.0",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.24",
     "morgan": "^1.10.0"
+  },
+  "scripts": {
+      "start": "forever start api/v1/index.js", 
+      "stop": "forever stop api/v1/index.js"
   }
 }
