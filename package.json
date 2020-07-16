@@ -18,6 +18,7 @@
   "homepage": "https://github.com/izewfktvy533zjmn/commpost#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "helmet": "^3.23.3",
     "moment": "^2.27.0",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.24",
