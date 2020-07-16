@@ -3,6 +3,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var morgan = require('morgan');
 var helmet = require('helmet');
+var cors = require('cors');
 var CommentModel = require('./models/commentModel.js');
 var app = express();
 
@@ -20,6 +21,7 @@ mongoose.connection.on('error', function(err) {
 
 app.use(morgan('tiny'));
 app.use(helmet());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
