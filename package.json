@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "moment": "^2.27.0",
     "mongodb": "^3.5.9",
-    "mongoose": "^5.9.24"
+    "mongoose": "^5.9.24",
+    "morgan": "^1.10.0"
   }
 }

@@ -1,7 +1,8 @@
 var express = require('express');
-var app = express();
 var mongoose = require('mongoose');
-var CommentModel = require('./models/commentModel.js')
+var morgan = require('morgan');
+var CommentModel = require('./models/commentModel.js');
+var app = express();
 
 const connectionOption = {
     useNewUrlParser: true,
@@ -15,6 +16,7 @@ mongoose.connection.on('error', function(err) {
     process.exit(1);
 });
 
+app.use(morgan('tiny'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
