@@ -3,7 +3,7 @@ var CommentModel = mongoose.model('CommentModel');
 
 // ある記事の全てのコメントを取得する
 exports.all_comments = function(req, res) {
-    var article_id = req.get('Article-ID');
+    var article_id = req.query['article_id'];
 
     if (article_id) {
         console.log(article_id);
@@ -25,6 +25,7 @@ exports.all_comments = function(req, res) {
     }
 };
 
+// 特定のコメントを取得する
 exports.load_comment = function(req, res) {
     var _id = req.params.id;
 
@@ -53,9 +54,6 @@ exports.create_comment = function(req, res) {
         }
     });
 }
-
-// 特定のコメントを取得する
-//exports.load_comment = 
 
 // 特定のコメントを削除する
 exports.delete_comment = function(req, res) {
