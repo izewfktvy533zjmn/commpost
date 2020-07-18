@@ -1,11 +1,12 @@
 FROM ubuntu:18.04
 
 ENV ENDPOINT=
-ENV PORT=
+
+EXPOSE 80
 
 RUN apt-get update && \
     apt-get -y upgrade && \
-    apt-get install -y git nodejs npm
+    apt-get install -y git nodejs npm nginx
 
 RUN git clone https://github.com/izewfktvy533zjmn/commpost.git && \
     cd commpost && \
@@ -13,6 +14,4 @@ RUN git clone https://github.com/izewfktvy533zjmn/commpost.git && \
 
 WORKDIR commpost
 
-ADD scripts/entrypoint.sh ./
-
-CMD ["./entrypoint.sh"]
+CMD ["./scripts/entrypoint.sh"]

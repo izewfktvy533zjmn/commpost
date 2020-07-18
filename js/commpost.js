@@ -19,8 +19,8 @@ window.addEventListener('DOMContentLoaded', async function() {
 
             });
         }
-    }).catch((err) => {
-        console.log(err);
+    }).catch(function(err) {
+        console.log("commpost.on-going.jp doesn't work.");
     });
 
 });
@@ -67,7 +67,8 @@ function getComment(article_id) {
         return data.json();
     }).then(function (json) {
         return json;
-    }).catch((err) => {
+    }).catch(function(err) {
+        console.log("commpost.on-going.jp doesn't work.");
         return {};
     });
 }
@@ -102,6 +103,6 @@ async function sendComment() {
         showComment([json]);
         document.forms['comment_form'].reset();
     }).catch((err) => {
-        console.log(err);
+        console.log("commpost.on-going.jp doesn't work.");
     });
 }
