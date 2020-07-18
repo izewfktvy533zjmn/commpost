@@ -1,9 +1,9 @@
 window.addEventListener('DOMContentLoaded', async function() {
     var url = 'https://commpost.on-going.jp/api/v1/healthz';
     var method = 'GET';
-    var uri = document.documentURI;
-    var article_id = await digestMessage(uri);
-    
+    var document_uri = document.documentURI;
+    var article_id = await digestMessage(document_uri);
+
     timeout(3000, fetch(url, {
         method
     })).then(function(data) {
@@ -74,8 +74,8 @@ function getComment(article_id) {
 }
 
 async function sendComment() {
-    var uri = document.documentURI;
-    var article_id = await digestMessage(uri);
+    var document_uri = document.documentURI;
+    var article_id = await digestMessage(document_uri);
     var name = document.getElementById("input_name").value;
     var comment = document.getElementById("input_comment").value;
     if (name.length == 0) name = "Anonymous";
