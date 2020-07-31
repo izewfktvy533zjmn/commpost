@@ -15,14 +15,13 @@
     </head>
     <body>
         <div id="commpost"></div>
+        <link rel="stylesheet" type="text/css" href="https://commpost.on-going.jp/assets/css/style.css">
+        <script type="text/javascript" src="https://commpost.on-going.jp/js/commpost.js"></script>
         <script type="text/javascript">
             (function() {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                 dsq.src = 'https://commpost.on-going.jp/js/embed.js';
-                (document.getElementById('commpost')).innerHTML = "TEST";
-                (document.getElementById('commpost')).appendChild(dsq);
+                (document.getElementsById('commpost').appendChild(dsq);
             })();
         </script>
     </body>

@@ -14,12 +14,14 @@ window.addEventListener('DOMContentLoaded', async function() {
             
             promise.then(function(json) {
                 target = document.getElementById('commpost');
-                target.innerHTML = 'Commpost <br> <table id="display_comment">Getting comments...</table> <form id="comment_form" action="#" onsubmit="return false;"> <p>Name: <br> <input type="text" id="input_name" placeholder="Anonymous"> </p> <p>Comment: <br> <textarea id="input_comment"></textarea> </p> <button type="button" onclick="sendComment();">Send</button> </form>';
+                target.innerHTML = 'Commpost<br><table id="display_comment"></table> <form id="comment_form" action="#" onsubmit="return false;"> <p>Name: <br> <input type="text" id="input_name" placeholder="Anonymous"> </p> <p>Comment: <br> <textarea id="input_comment"></textarea> </p> <button type="button" onclick="sendComment();">Send</button> </form>';
                 showComment(json);
 
             });
         }
     }).catch(function(err) {
+        target = document.getElementById('commpost');
+        target.innerHTML = "Dosen't work";
         console.log("commpost.on-going.jp doesn't work.");
     });
 
