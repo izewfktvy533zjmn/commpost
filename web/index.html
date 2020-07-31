@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>COMMPOST</title>
+        <title>Commpost</title>
         <link rel="icon" type="image/png" href="./assets/icons/icon-16x16.png" sizes="16x16">
         <link rel="icon" type="image/png" href="./assets/icons/icon-32x32.png" sizes="32x32">
         <link rel="icon" type="image/png" href="./assets/icons/icon-48x48.png" sizes="48x48">
@@ -14,16 +14,22 @@
         <link rel="icon" type="image/png" href="./assets/icons/icon-512x512.png" sizes="512x512">
     </head>
     <body>
+
         <div id="commpost"></div>
         <script type="text/javascript">
-            (function() {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = 'https://commpost.on-going.jp/js/embed.js';
-                (document.getElementById('commpost')).innerHTML = "TEST";
-                (document.getElementById('commpost')).appendChild(dsq);
-            })();
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'https://commpost.on-going.jp/js/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+            var dlq = document.createElement('link');
+            dlq.rel = 'stylesheet'; dlq.type = 'text/css'; dlq.href = 'https://commpost.on-going.jp/assets/css/embed.css';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dlq);
+
+        })();
         </script>
+        <noscript>Please enable JavaScript to view the <a href="https://commpost.on-going.jp">comments powered by Commpost.</a></noscript>
+        <a href="https://commpost.on-going.jp/" class="dsq-brlink">comments powered by <span class="logo">Commpost</span></a>
+
     </body>
 </html>
