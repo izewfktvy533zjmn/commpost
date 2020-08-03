@@ -17,9 +17,6 @@
                 commpost_comments.id = 'commpost-comments';
 
                 commpost = document.getElementById('commpost');
-
-                //commpost.innerHTML = 'Commpost<br><form id="comment_form" action="#" onsubmit="return false;"> <p>Name: <br> <input type="text" id="input_name" placeholder="Anonymous"> </p> <p>Comment: <br> <textarea id="input_comment"></textarea> </p> <button type="button" onclick="sendComment();">Send</button> </form>';
-                
                 commpost.appendChild(commpost_comments);
 
                 showComment(json);
@@ -70,7 +67,6 @@
     }).catch(function(err) {
         target = document.getElementById('commpost');
         target.textContent = "Dosen't work";
-        console.log("commpost.on-going.jp doesn't work.");
     });
 
 })();
@@ -98,9 +94,6 @@ function showComment(json) {
         var date = json[i].date;  
         var poster_name = json[i].poster_name;
         var text = json[i].text;
-        
-        console.log(text);
-        console.log(json[i]._id);
         
         var commpost_comment_poster_b = document.createElement('b');
         commpost_comment_poster_b.setAttribute('class', 'commpost-comment-poster');
@@ -151,7 +144,6 @@ function getComment(article_id) {
     }).then(function (json) {
         return json;
     }).catch(function(err) {
-        console.log("commpost.on-going.jp doesn't work.");
         return {};
     });
 }
@@ -186,6 +178,6 @@ async function sendComment() {
         showComment([json]);
         document.forms['comment_form'].reset();
     }).catch((err) => {
-        console.log("commpost.on-going.jp doesn't work.");
+        return {};
     });
 }
