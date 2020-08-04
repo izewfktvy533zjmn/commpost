@@ -176,7 +176,7 @@ async function sendComment() {
         return data.json()
     }).then((json) => {
         showComment([json]);
-        document.forms['comment_form'].reset();
+        document.forms['commpost-comment-post-form'].reset();
     }).catch((err) => {
         return {};
     });
