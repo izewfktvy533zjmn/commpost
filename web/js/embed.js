@@ -55,7 +55,7 @@
                 commpost_comment_send_button_div.appendChild(commpost_comment_send_button);
 
                 var commpost_comment_post_loading_img = document.createElement('img');
-                commpost_comment_post_loading_img.setAttribute('src', './assets/gif/loading.gif');
+                commpost_comment_post_loading_img.setAttribute('src', 'https://commpost.on-going.jp/assets/gif/loading.gif');
 
                 var commpost_comment_post_form = document.createElement('form');
                 commpost_comment_post_form.setAttribute('id', 'commpost-comment-post-form');
