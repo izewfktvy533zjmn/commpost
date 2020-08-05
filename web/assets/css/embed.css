@@ -1,5 +1,8 @@
 :root {
     --border-color: #674DA8;
+    --post-button-color: #0097A7;
+    --post-button-color-hovar: #006670;
+    --post-button-color-active: #00383D;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
@@ -43,6 +46,7 @@ button {
     border-radius: 15px;
     margin-top: 24px;
     margin-bottom: 24px;
+    background-color: #fff;
 }
 
 #commpost-comments {
@@ -109,17 +113,17 @@ button {
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 36px;
-    color: #F3F3F3;
-    background-color: #0098A8;
+    color: #fff;
+    background-color: var(--post-button-color);
     border: none;
 }
 
 #commpost-comment-send-button:hover {
-    background-color: #006670;
+    background-color: var(--post-button-color-hovar);
 }
 
 #commpost-comment-send-button:active {
-    background-color: #00383D;
+    background-color: var(--post-button-color-active);
 }
 
 #commpost-comment-post-loading {

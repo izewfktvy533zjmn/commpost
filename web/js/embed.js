@@ -49,7 +49,7 @@
                 commpost_comment_send_button.setAttribute('id', 'commpost-comment-send-button');
                 commpost_comment_send_button.setAttribute('type', 'button');
                 commpost_comment_send_button.setAttribute('onclick', 'sendComment();');
-                commpost_comment_send_button.textContent = "Send";
+                commpost_comment_send_button.textContent = "Post";
 
                 var commpost_comment_send_button_div = document.createElement('div');
                 commpost_comment_send_button_div.appendChild(commpost_comment_send_button);
