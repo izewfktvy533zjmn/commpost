@@ -127,5 +127,12 @@ button {
 }
 
 #commpost-comment-post-loading {
+    padding-top: 30px;
+    padding-bottom: 30px;
     text-align: center;
+}
+
+#commpost-comment-post-loading img {
+    width: 70%;
+    height: auto;
 }
