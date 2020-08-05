@@ -20,6 +20,9 @@
                 commpost.appendChild(commpost_comments);
 
                 showComment(json);
+                
+                var commpost_comment_poster_input_label = document.createElement('label');
+                commpost_comment_poster_input_label.textContent = "Name";
 
                 var commpost_comment_poster_input = document.createElement('input');
                 commpost_comment_poster_input.setAttribute('id', 'commpost-comment-poster-input');
@@ -27,13 +30,18 @@
                 commpost_comment_poster_input.setAttribute('placeholder', 'Anonymous');
 
                 var commpost_comment_poster_input_div = document.createElement('div');
+                commpost_comment_poster_input_div.appendChild(commpost_comment_poster_input_label);
                 commpost_comment_poster_input_div.appendChild(commpost_comment_poster_input);
 
+
+                var commpost_comment_content_textarea_label = document.createElement('label');
+                commpost_comment_content_textarea_label.textContent = "Comment";
 
                 var commpost_comment_content_textarea = document.createElement('textarea');
                 commpost_comment_content_textarea.setAttribute('id', 'commpost-comment-content-textarea');
 
                 var commpost_comment_content_textarea_div = document.createElement('div');
+                commpost_comment_content_textarea_div.appendChild(commpost_comment_content_textarea_label);
                 commpost_comment_content_textarea_div.appendChild(commpost_comment_content_textarea);
 
 
@@ -46,6 +54,8 @@
                 var commpost_comment_send_button_div = document.createElement('div');
                 commpost_comment_send_button_div.appendChild(commpost_comment_send_button);
 
+                var commpost_comment_post_loading_img = document.createElement('img');
+                commpost_comment_post_loading_img.setAttribute('src', './assets/gif/loading.gif');
 
                 var commpost_comment_post_form = document.createElement('form');
                 commpost_comment_post_form.setAttribute('id', 'commpost-comment-post-form');
@@ -56,12 +66,17 @@
                 commpost_comment_post_form.appendChild(commpost_comment_content_textarea_div);
                 commpost_comment_post_form.appendChild(commpost_comment_send_button_div);
 
+                var commpost_comment_post_loading_div = document.createElement('div');
+                commpost_comment_post_loading_div.setAttribute('id', 'commpost-comment-post-loading');
+                commpost_comment_post_loading_div.appendChild(commpost_comment_post_loading_img);
+                commpost_comment_post_loading_div.style.display = 'none';
+
 
                 var commpost_comment_post_form_div = document.createElement('div');
-                commpost_comment_post_form_div.setAttribute('id', 'commpost-comment-post-form')
+                commpost_comment_post_form_div.setAttribute('id', 'commpost-comment-post-form-div')
                 commpost_comment_post_form_div.appendChild(commpost_comment_post_form);
-
                 commpost.appendChild(commpost_comment_post_form_div);
+                commpost.appendChild(commpost_comment_post_loading_div);
             });
         }
     }).catch(function(err) {
@@ -81,9 +96,9 @@ function timeout(ms, promise) {
 }
 
 async function digestMessage(message){
-    const msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
-    const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
+    const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8); // hash the message
+    const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
     const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
 
     return hashHex;
@@ -112,7 +127,7 @@ function showComment(json) {
         commpost_comment_date_div.appendChild(commpost_comment_date_time);
 
         var commpost_comment_content_p = document.createElement('p');
-        commpost_comment_content_p.setAttribute('class', 'Commpost-comment-content');
+        commpost_comment_content_p.setAttribute('class', 'commpost-comment-content');
         commpost_comment_content_p.textContent = text;
         
         var commpost_comment_content_div = document.createElement('div');
@@ -153,8 +168,15 @@ async function sendComment() {
     var article_id = await digestMessage(document_uri);
     var name = document.getElementById('commpost-comment-poster-input').value;
     var comment = document.getElementById('commpost-comment-content-textarea').value;
+
     if (name.length == 0) name = "Anonymous";
     if (comment.length == 0) return;
+
+    var post_form = document.getElementById('commpost-comment-post-form');
+    post_form.style.display = 'none';
+
+    var post_loading = document.getElementById('commpost-comment-post-loading');
+    post_loading.style.display = '';
 
     var url = 'https://commpost.on-going.jp/api/v1/comments';
     var obj = {
@@ -176,7 +198,9 @@ async function sendComment() {
         return data.json()
     }).then((json) => {
         showComment([json]);
-        document.forms['comment_form'].reset();
+        post_form.style.display = '';
+        document.forms['commpost-comment-post-form'].reset();
+        post_loading.style.display = 'none';
     }).catch((err) => {
         return {};
     });
