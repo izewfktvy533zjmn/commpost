@@ -1,1 +1,1 @@
-# <img src="./web/assets/img/commpost_logo.png" width=30% alt="logo">
+# <img src="assets/img/logo.png" width=35% alt="logo">
