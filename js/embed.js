@@ -172,8 +172,8 @@ async function sendComment() {
     if (name.length == 0) name = "Anonymous";
     if (comment.length == 0) return;
 
-    var post_form = document.getElementById('commpost-comment-post-form');
-    post_form.style.display = 'none';
+    var post_button = document.getElementById('commpost-comment-send-button');
+    post_button.style.display = 'none';
 
     var post_loading = document.getElementById('commpost-comment-post-loading');
     post_loading.style.display = '';
@@ -198,7 +198,7 @@ async function sendComment() {
         return data.json()
     }).then((json) => {
         showComment([json]);
-        post_form.style.display = '';
+        post_button.style.display = '';
         document.forms['commpost-comment-post-form'].reset();
         post_loading.style.display = 'none';
     }).catch((err) => {
