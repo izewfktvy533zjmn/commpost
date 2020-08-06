@@ -37,20 +37,28 @@ button {
 }
 
 #commpost {
-    font-family: 'Fredoka One', 'Recursive', sans-serif;
-    margin-right: auto;
-    margin-left : auto;
     display: block;
-    max-width: 600px;
-    border: 9px solid #674DA8;
-    border-radius: 15px;
     margin-top: 24px;
     margin-bottom: 24px;
+    margin-right: auto;
+    margin-left : auto;
+    font-family: 'Fredoka One', 'Recursive', sans-serif;
+    max-width: 600px;
     background-color: #fff;
+}
+
+
+#commpost-main {
+    border: 9px solid #674DA8;
+    border-radius: 15px;
 }
 
 #commpost-comments {
     list-style: none;
+}
+
+#commpost-comments li {
+    padding-bottom: 12px;
 }
 
 #commpost-comment-poster-input {
@@ -73,15 +81,20 @@ button {
 }
 
 .commpost-comment-poster {
-    font-size: 24px;
+    font-size: 18px;
+    padding-bottom: 3px;
 }
 
 .commpost-comment-date {
-    font-size: 24px;
+    font-size: 12px;
 }
 
 .commpost-comment-content {
-    font-size: 24px;
+    font-size: 18px;
+}
+
+.commpost-comment-content p {
+    margin-top: 3px;
 }
 
 #commpost-comment-post-form {

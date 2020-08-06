@@ -14,10 +14,14 @@
             
             promise.then(function(json) {
                 var commpost_comments = document.createElement('ul');
-                commpost_comments.id = 'commpost-comments';
+                commpost_comments.setAttribute('id', 'commpost-comments');
+
+                var commpost_main = document.createElement('div');
+                commpost_main.setAttribute('id', 'commpost-main');
+                commpost_main.appendChild(commpost_comments);
 
                 commpost = document.getElementById('commpost');
-                commpost.appendChild(commpost_comments);
+                commpost.appendChild(commpost_main);
 
                 showComment(json);
                 
@@ -75,8 +79,9 @@
                 var commpost_comment_post_form_div = document.createElement('div');
                 commpost_comment_post_form_div.setAttribute('id', 'commpost-comment-post-form-div')
                 commpost_comment_post_form_div.appendChild(commpost_comment_post_form);
-                commpost.appendChild(commpost_comment_post_form_div);
-                commpost.appendChild(commpost_comment_post_loading_div);
+            
+                commpost_main.appendChild(commpost_comment_post_form_div);
+                commpost_main.appendChild(commpost_comment_post_loading_div);
             });
         }
     }).catch(function(err) {
@@ -106,10 +111,11 @@ async function digestMessage(message){
 
 function showComment(json) {
     for (var i = 0; i < json.length; i++) {
-        var date = json[i].date;  
+        var date = new Date(json[i].date);
+        var date_str = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate()
         var poster_name = json[i].poster_name;
         var text = json[i].text;
-        
+
         var commpost_comment_poster_b = document.createElement('b');
         commpost_comment_poster_b.setAttribute('class', 'commpost-comment-poster');
         commpost_comment_poster_b.textContent = poster_name;
@@ -120,7 +126,7 @@ function showComment(json) {
 
         var commpost_comment_date_time = document.createElement('time');
         commpost_comment_date_time.setAttribute('datetime', date);
-        commpost_comment_date_time.textContent = date;
+        commpost_comment_date_time.textContent = date_str;
         
         var commpost_comment_date_div = document.createElement('div');
         commpost_comment_date_div.setAttribute('class', 'commpost-comment-date');
