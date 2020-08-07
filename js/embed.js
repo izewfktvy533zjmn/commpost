@@ -125,6 +125,10 @@ function showComment(json) {
         var date_str = date.getFullYear() + "/" + (date.getMonth()+1) + "/" + date.getDate()
         var poster_name = json[i].poster_name;
         var text = json[i].text;
+        
+        console.log(text);
+        var text_lst = text.split('\n');
+        console.log(text_lst);
 
         var commpost_comment_poster_b = document.createElement('b');
         commpost_comment_poster_b.setAttribute('class', 'commpost-comment-poster');
@@ -142,13 +146,15 @@ function showComment(json) {
         commpost_comment_date_div.setAttribute('class', 'commpost-comment-date');
         commpost_comment_date_div.appendChild(commpost_comment_date_time);
 
-        var commpost_comment_content_p = document.createElement('p');
-        commpost_comment_content_p.setAttribute('class', 'commpost-comment-content');
-        commpost_comment_content_p.textContent = text;
-        
         var commpost_comment_content_div = document.createElement('div');
         commpost_comment_content_div.setAttribute('class', 'commpost-comment-content');
-        commpost_comment_content_div.appendChild(commpost_comment_content_p);
+
+        for (var text_i = 0; text_i < text_lst.length; text_i++) {
+            var commpost_comment_content_p = document.createElement('p');
+            commpost_comment_content_p.setAttribute('class', 'commpost-comment-content');
+            commpost_comment_content_p.textContent = text_lst[text_i];
+            commpost_comment_content_div.appendChild(commpost_comment_content_p);
+        }
 
         var article = document.createElement('article');
         article.appendChild(commpost_comment_poster_div);
