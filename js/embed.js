@@ -17,7 +17,8 @@
                 commpost_comments.setAttribute('id', 'commpost-comments');
                 
                 var logo_img = document.createElement('img');
-                logo_img.setAttribute('src', 'https://commpost.on-going.jp/assets/img/logo.png');
+                //logo_img.setAttribute('src', 'https://commpost.on-going.jp/assets/img/logo.png');
+                logo_img.setAttribute('src', 'https://raw.githubusercontent.com/izewfktvy533zjmn/commpost/master/assets/img/logo.png');
 
                 var h3 = document.createElement('h3');
                 h3.appendChild(logo_img);
@@ -25,11 +26,14 @@
                 var commpost_main = document.createElement('div');
                 commpost_main.setAttribute('id', 'commpost-main');
                 commpost_main.appendChild(h3);
+
+                commpost.appendChild(commpost_main);
                 commpost_main.appendChild(commpost_comments);
+
 
                 commpost = document.getElementById('commpost');
                 commpost.appendChild(commpost_main);
-
+                
                 showComment(json);
                 
                 var commpost_comment_poster_input_label = document.createElement('label');

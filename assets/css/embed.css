@@ -51,12 +51,23 @@ button {
 #commpost-main {
     border: 9px solid #674DA8;
     border-radius: 15px;
+    padding-bottom: 27px;
     margin: 18px 18px;
+}
+
+#commpost-main h3 {
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+}
+
+#commpost-main img {
+    width: 70%;
+    height: auto;
 }
 
 #commpost-comments {
     list-style: none;
-    padding: 15px;
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -109,9 +120,10 @@ button {
     max-width: 80%;
     margin: 15px auto;
     /*border: 1px solid #674DA8;*/
-    padding-top: 30px;
+    padding-top: 60px;
     border-radius: 5px;
     background-color; #F3F3F3;
+    margin-top: 21px;
     margin-bottom: 21px;
 }
 
@@ -121,17 +133,17 @@ button {
 
 #commpost-comment-post-form label {
     font-size: 24px;
-    line-height: 2em;
+    line-height: 1.2em;
 }
 
 #commpost-comment-send-button {
     display: block;
-    font-size: 24px;
+    font-size: 27px;
     margin-top: 27px;
     margin-bottom: 36px;
     width: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 18px;
+    padding-bottom: 18px;
     border-radius: 36px;
     color: #fff;
     background-color: var(--post-button-color);
