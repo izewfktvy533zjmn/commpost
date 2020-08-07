@@ -15,9 +15,16 @@
             promise.then(function(json) {
                 var commpost_comments = document.createElement('ul');
                 commpost_comments.setAttribute('id', 'commpost-comments');
+                
+                var logo_img = document.createElement('img');
+                logo_img.setAttribute('src', 'https://commpost.on-going.jp/assets/img/logo.png');
+
+                var h3 = document.createElement('h3');
+                h3.appendChild(logo_img);
 
                 var commpost_main = document.createElement('div');
                 commpost_main.setAttribute('id', 'commpost-main');
+                commpost_main.appendChild(h3);
                 commpost_main.appendChild(commpost_comments);
 
                 commpost = document.getElementById('commpost');
@@ -112,7 +119,7 @@ async function digestMessage(message){
 function showComment(json) {
     for (var i = 0; i < json.length; i++) {
         var date = new Date(json[i].date);
-        var date_str = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate()
+        var date_str = date.getFullYear() + "/" + (date.getMonth()+1) + "/" + date.getDate()
         var poster_name = json[i].poster_name;
         var text = json[i].text;
 
