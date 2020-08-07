@@ -138,12 +138,12 @@ button {
 
 #commpost-comment-send-button {
     display: block;
-    font-size: 27px;
+    font-size: 24px;
     margin-top: 27px;
     margin-bottom: 36px;
     width: 100%;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border-radius: 36px;
     color: #fff;
     background-color: var(--post-button-color);
