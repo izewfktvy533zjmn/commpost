@@ -55,10 +55,15 @@ button {
 
 #commpost-comments {
     list-style: none;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 #commpost-comments li {
+    padding-top: 12px;
     padding-bottom: 12px;
+    border-bottom: solid 1.5px #FFAB40;
 }
 
 #commpost-comment-poster-input {
@@ -95,6 +100,7 @@ button {
 
 .commpost-comment-content p {
     margin-top: 3px;
+    margin-bottom: 0;
 }
 
 #commpost-comment-post-form {
@@ -113,13 +119,13 @@ button {
 }
 
 #commpost-comment-post-form label {
-    font-size: 27px;
+    font-size: 24px;
     line-height: 2em;
 }
 
 #commpost-comment-send-button {
     display: block;
-    font-size: 27px;
+    font-size: 24px;
     margin-top: 27px;
     margin-bottom: 27px;
     width: 100%;
