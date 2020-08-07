@@ -17,8 +17,7 @@
                 commpost_comments.setAttribute('id', 'commpost-comments');
                 
                 var logo_img = document.createElement('img');
-                //logo_img.setAttribute('src', 'https://commpost.on-going.jp/assets/img/logo.png');
-                logo_img.setAttribute('src', 'https://raw.githubusercontent.com/izewfktvy533zjmn/commpost/master/assets/img/logo.png');
+                logo_img.setAttribute('src', 'https://commpost.on-going.jp/assets/img/logo.png');
 
                 var h3 = document.createElement('h3');
                 h3.appendChild(logo_img);
