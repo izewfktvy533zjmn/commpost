@@ -125,10 +125,7 @@ function showComment(json) {
         var date_str = date.getFullYear() + "/" + (date.getMonth()+1) + "/" + date.getDate()
         var poster_name = json[i].poster_name;
         var text = json[i].text;
-        
-        console.log(text);
         var text_lst = text.split('\n');
-        console.log(text_lst);
 
         var commpost_comment_poster_b = document.createElement('b');
         commpost_comment_poster_b.setAttribute('class', 'commpost-comment-poster');
