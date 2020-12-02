@@ -69,6 +69,10 @@ exports.update_comment = function(req, res) {
             comment.poster_name = req.body.poster_name;
             comment.text = req.body.text;
 
+            if (req.body.date) {
+                comment.date = req.body.date;
+            }
+
             comment.save(function(err, comment) {
                 if (err) {
                     res.send(err);
