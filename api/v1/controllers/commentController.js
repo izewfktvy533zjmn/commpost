@@ -43,6 +43,7 @@ exports.create_comment = function(req, res) {
     var new_comment = new CommentModel();
 
     new_comment.article_id = req.body.article_id;
+    new_comment.article_url = req.body.article_url;
     new_comment.poster_name = req.body.poster_name;
     new_comment.text = req.body.text;
 
@@ -64,6 +65,7 @@ exports.update_comment = function(req, res) {
             res.send(err);
         } else {
             comment.article_id = req.body.article_id;
+            comment.article_url = req.body.article_url;
             comment.poster_name = req.body.poster_name;
             comment.text = req.body.text;
 
