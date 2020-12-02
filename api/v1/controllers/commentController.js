@@ -55,6 +55,30 @@ exports.create_comment = function(req, res) {
     });
 }
 
+// コメントの内容を更新する
+exports.update_comment = function(req, res) {
+    var _id = req.params.id;
+
+    CommentModel.findById(_id, function(err, comment) {
+        if (err) {
+            res.send(err);
+        } else {
+            comment.article_id = req.body.article_id;
+            comment.poster_name = req.body.poster_name;
+            comment.text = req.body.text;
+
+            comment.save(function(err, comment) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.json(comment);
+                }
+            });
+        }
+    });
+
+}
+
 // 特定のコメントを削除する
 exports.delete_comment = function(req, res) {
     var _id = req.params.id;

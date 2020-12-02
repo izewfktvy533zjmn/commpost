@@ -5,6 +5,7 @@ var router = express.Router();
 router.get('/', CommentController.all_comments);
 router.get('/:id', CommentController.load_comment);
 router.post('/', CommentController.create_comment);
+router.put('/:id', CommentController.update_comment);
 router.delete('/:id', CommentController.delete_comment);
 
 module.exports = router;
