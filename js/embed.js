@@ -185,6 +185,7 @@ function getComment(article_id) {
 async function sendComment() {
     var document_uri = document.documentURI;
     var article_id = await digestMessage(document_uri);
+    var article_url = document_uri;
     var name = document.getElementById('commpost-comment-poster-input').value;
     var comment = document.getElementById('commpost-comment-content-textarea').value;
 
@@ -200,6 +201,7 @@ async function sendComment() {
     var url = 'https://commpost.on-going.jp/api/v1/comments';
     var obj = {
         "article_id": article_id,
+        "article_url": article_url,
         "poster_name": name,
         "text": comment
     };
